@@ -2,6 +2,7 @@
 
 ## Sobre o Projeto
 Este projeto consiste em uma plataforma mobile voltada para estudantes, com foco em **memorização** e **revisão ativa**
+<img width="474" height="926" alt="Tela 1 - Entrar" src="https://github.com/user-attachments/assets/6d0c8d6d-5fe4-43f5-a6dd-1487cbee6ec1" />
 
 ## Funcionalidades
 
