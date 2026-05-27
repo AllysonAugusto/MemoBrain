@@ -5,7 +5,6 @@ Este projeto consiste em uma plataforma mobile voltada para estudantes, com foco
 
 <p align="center">
   <img width="1075" height="333" alt="image" src="https://github.com/user-attachments/assets/489787a9-6a33-4006-8cbb-7e8ff33fff6b" />
-" width="100%"/>
 </p>
 
 Protótipo no figma: https://www.figma.com/design/Cfivm9YhSHqVLeQbkaYKIg/MemoBrain?node-id=5-2&p=f&t=NuGddE2udTLuIhBz-0
