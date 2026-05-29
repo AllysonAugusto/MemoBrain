@@ -29,7 +29,6 @@ data class Caderno(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CadernosTelas() {
-    // Lista de exemplo baseada no seu protótipo
     val listaCadernos = remember {
         listOf(
             Caderno("1", "Ciência de Dados", 6, 14),

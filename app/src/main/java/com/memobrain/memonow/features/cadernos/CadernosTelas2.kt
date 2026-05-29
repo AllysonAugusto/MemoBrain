@@ -24,7 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-// Models de dados para organizar a tela
+
 data class MetodoEstudo(val titulo: String, val emoji: String)
 data class AtividadeRecente(val titulo: String, val subtitulo: String)
 
@@ -47,13 +47,13 @@ fun CadernosTelas2() {
 
     Scaffold(
         bottomBar = { MenuInferiorMemonow() },
-        containerColor = Color(0xFFF8F9FA) // Fundo off-white suave do app
+        containerColor = Color(0xFFF8F9FA)
     ) { paddingValues ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues)
-                .verticalScroll(rememberScrollState()) // Permite rolar a tela inteira como um Dashboard
+                .verticalScroll(rememberScrollState())
                 .padding(16.dp)
         ) {
             // 1. CABEÇALHO DE USUÁRIO
@@ -126,7 +126,7 @@ fun CadernosTelas2() {
     }
 }
 
-// --- SUB-COMPOSABLES AUXILIARES ---
+
 
 @Composable
 fun HeaderUsuario(nome: String) {
@@ -290,7 +290,6 @@ fun CardAtividadeRecente(atividade: AtividadeRecente) {
             }
 
             IconButton(onClick = { /* Opções */ }) {
-                // Aqui usamos com segurança o único ícone importado das bibliotecas nativas
                 Icon(
                     imageVector = Icons.Default.Edit,
                     contentDescription = "Opções",
