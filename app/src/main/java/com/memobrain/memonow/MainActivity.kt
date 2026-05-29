@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import com.memobrain.memonow.features.cadernos.CadernosTelas
+import com.memobrain.memonow.features.cadernos.CadernosTelas2
 import com.memobrain.memonow.features.login.LoginTela
 import com.memobrain.memonow.ui.tema.MemonowTheme
 
@@ -15,6 +16,7 @@ class MainActivity : ComponentActivity() {
             MemonowTheme() {
                 //LoginTela()
                 CadernosTelas()
+                //CadernosTelas2()
             }
         }
     }
