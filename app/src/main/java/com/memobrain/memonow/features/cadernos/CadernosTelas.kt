@@ -1,6 +1,7 @@
 package com.memobrain.memonow.features.cadernos
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -70,6 +71,7 @@ fun CadernosTelas() {
             // Seletor de Abas
             TabSelector(
                 selecionado = tabSelecionada,
+                quantidadeMeus = listaCadernos.size,
                 onTabSelected = { novaTab ->
                     tabSelecionada = novaTab
                 }
@@ -113,7 +115,7 @@ fun CadernosTelas() {
 
 // 3. SELETOR DE ABAS
 @Composable
-fun TabSelector(selecionado: Int, onTabSelected: (Int) -> Unit) {
+fun TabSelector(selecionado: Int, quantidadeMeus: Int, onTabSelected: (Int) -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -122,7 +124,7 @@ fun TabSelector(selecionado: Int, onTabSelected: (Int) -> Unit) {
             .padding(4.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        val abas = listOf("Meus (03)", "Públicos")
+        val abas = listOf("Meus ($quantidadeMeus)", "Públicos")
         abas.forEachIndexed { index, texto ->
             val eOSelecionado = selecionado == index
             Button(
@@ -148,7 +150,11 @@ fun TabSelector(selecionado: Int, onTabSelected: (Int) -> Unit) {
 @Composable
 fun CardCaderno(caderno: Caderno) {
     Card(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable {
+                /* O que colocar aqui dentro vai rodar quando o usuário clicar no card */
+            },
         colors = CardDefaults.cardColors(containerColor = Color.White),
         shape = RoundedCornerShape(16.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 1.dp)
@@ -248,7 +254,7 @@ fun MenuInferiorExemplo() {
                 icon = {
                     val emoji = when(index) {
                         0 -> "🏠"
-                        1 -> "🗂️"
+                        1 -> "📖"
                         2 -> "📊"
                         else -> "👤"
                     }
