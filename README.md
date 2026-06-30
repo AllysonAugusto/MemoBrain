@@ -84,3 +84,137 @@ A plataforma contará com diversos formatos de exercícios e interações:
 - Análise de desempenho do usuário
 - Recomendações personalizadas de estudo
 - Integração com IA para geração de conteúdo
+
+## Organização de Arquivos e Telas
+
+```text
+MemoBrain/
+├── app/
+│   └── src/main/java/com/memobrain/memonow/
+│
+│       ├── MainActivity.kt
+│       │   └── Ponto de entrada do aplicativo. Configura o tema e inicia a navegação.
+│
+│       ├── navegacao/
+│       │   ├── AppNavegacao.kt
+│       │   │   └── Controla o fluxo entre as telas do aplicativo.
+│       │   └── rotas_telas.kt
+│       │       └── Define as rotas usadas pela navegação.
+│
+│       ├── data/
+│       │   ├── local/
+│       │   │   └── datastore/
+│       │   │       ├── ArmazenamentoSessao.kt
+│       │   │       │   └── Salva localmente UID e e-mail da sessão atual.
+│       │   │       └── PreferenciasUsuario.kt
+│       │   │           └── Reservado para preferências do usuário, como tema e notificações.
+│       │   │
+│       │   ├── remote/
+│       │   │   ├── autenticacao/
+│       │   │   │   ├── GerenciadorAutenticacao.kt
+│       │   │   │   │   └── Centraliza funções gerais de autenticação.
+│       │   │   │   ├── ServicoCadastroFirebase.kt
+│       │   │   │   │   └── Cria usuários no Firebase Authentication e salva o perfil no Firestore.
+│       │   │   │   └── ServicoLoginFirebase.kt
+│       │   │   │       └── Realiza login, logout e consulta o usuário autenticado.
+│       │   │   │
+│       │   │   └── firestore/
+│       │   │       ├── FonteDadosFirestoreCaderno.kt
+│       │   │       │   └── Comunicação direta com a coleção de cadernos.
+│       │   │       ├── FonteDadosFirestoreArquivo.kt
+│       │   │       │   └── Comunicação direta com os arquivos de cada caderno.
+│       │   │       ├── FonteDadosFirestoreConteudo.kt
+│       │   │       │   └── Gerencia flashcards e questões de múltipla escolha.
+│       │   │       └── FonteDadosFirestoreHistorico.kt
+│       │   │           └── Salva e consulta o histórico de revisões.
+│       │   │
+│       │   └── repository/
+│       │       └── repositorio/
+│       │           ├── RepositorioCaderno.kt
+│       │           ├── RepositorioArquivo.kt
+│       │           ├── RepositorioConteudo.kt
+│       │           └── RepositorioHistorico.kt
+│       │
+│       │           └── Faz a ponte entre as telas/ViewModels e o Firestore.
+│
+│       ├── features/
+│       │   ├── login/
+│       │   │   ├── TelaInicial.kt
+│       │   │   │   └── Tela de boas-vindas com opções de entrar ou cadastrar.
+│       │   │   └── LoginTela.kt
+│       │   │       └── Tela usada para autenticação de usuários cadastrados.
+│       │   │
+│       │   ├── registrar/
+│       │   │   └── RegistrarTela.kt
+│       │   │       └── Tela de criação de uma nova conta.
+│       │   │
+│       │   ├── perfil/
+│       │   │   └── ConfigTela.kt
+│       │   │       └── Exibe dados do perfil, plano atual e opções de sair ou excluir conta.
+│       │   │
+│       │   └── cadernos/
+│       │       ├── DashboardCadernosTela.kt
+│       │       │   └── Tela inicial do app: métodos de estudo, cadernos em andamento e atividades recentes.
+│       │       │
+│       │       ├── HomeViewModel.kt
+│       │       │   └── Controla os dados exibidos na tela inicial.
+│       │       │
+│       │       ├── ListaCadernosTela.kt
+│       │       │   └── Lista todos os cadernos do usuário autenticado.
+│       │       │
+│       │       ├── CadernosViewModel.kt
+│       │       │   └── Controla o carregamento e atualização da lista de cadernos.
+│       │       │
+│       │       ├── CriarCadernoScreen.kt
+│       │       ├── CriarCadernoViewModel.kt
+│       │       │   └── Criam novos cadernos.
+│       │       │
+│       │       ├── EditNotebookScreen.kt
+│       │       ├── EditNotebookViewModel.kt
+│       │       │   └── Editam ou excluem um caderno existente.
+│       │       │
+│       │       ├── DetalheCadernoScreen.kt
+│       │       ├── DetalheCadernoViewModel.kt
+│       │       │   └── Exibem os arquivos pertencentes a um caderno.
+│       │       │
+│       │       ├── CriarArquivoScreen.kt
+│       │       ├── CriarArquivoViewModel.kt
+│       │       │   └── Criam arquivos de estudo dentro de um caderno.
+│       │       │
+│       │       ├── EditArquivoScreen.kt
+│       │       ├── EditArquivoViewModel.kt
+│       │       │   └── Editam ou excluem arquivos já criados.
+│       │       │
+│       │       ├── CreateFlashcardScreen.kt
+│       │       ├── CreateFlashcardViewModel.kt
+│       │       │   └── Criam perguntas abertas no formato de flashcard.
+│       │       │
+│       │       ├── CreateMultipleChoiceScreen.kt
+│       │       ├── CreateMultipleChoiceViewModel.kt
+│       │       │   └── Criam questões de múltipla escolha.
+│       │       │
+│       │       ├── RevisarArquivoScreen.kt
+│       │       ├── RevisarArquivoViewModel.kt
+│       │       │   └── Controlam a revisão de perguntas e registram o progresso.
+│       │       │
+│       │       ├── FlashcardSummaryScreen.kt
+│       │       ├── FlashcardSummaryViewModel.kt
+│       │       │   └── Exibem o resultado da revisão, com acertos e tempo.
+│       │       │
+│       │       └── GraficosTelas.kt
+│       │           └── Exibe gráficos de desempenho e evolução do usuário.
+│       │
+│       └── ui/
+│           ├── componentes/
+│           │   ├── Botao.kt
+│           │   └── SocialLoginBotao.kt
+│           │
+│           │   └── Componentes reutilizáveis usados em diferentes telas.
+│           │
+│           └── tema/
+│               ├── Color.kt
+│               ├── Theme.kt
+│               └── Type.kt
+│
+│               └── Define cores, tipografia e tema visual do aplicativo.
+```
