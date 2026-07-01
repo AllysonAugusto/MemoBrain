@@ -7,6 +7,8 @@ Este projeto consiste em uma plataforma mobile voltada para estudantes, com foco
   <img src="https://github.com/user-attachments/assets/6a53b89d-6007-4833-9118-ade2e4388a7e" width="100%"/>
 </p>
 
+**Protótipo**: https://www.figma.com/design/Cfivm9YhSHqVLeQbkaYKIg/MemoBrain?node-id=5-2&t=CB3k2nNirOZDnv5M-1
+
 ### Funcionalidades
 
 A plataforma contará com diversos formatos de exercícios e interações:
